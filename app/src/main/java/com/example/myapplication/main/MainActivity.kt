@@ -1,24 +1,17 @@
 package com.example.myapplication.main
 
-import android.content.ComponentName
-import android.content.Context
 import android.os.Bundle
-import android.support.v4.media.MediaBrowserCompat
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.activity.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.example.myapplication.data.CommonResult
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.media.MusicService
 import com.example.myapplication.test.Test
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -43,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
+                Log.e(TAG,Thread.currentThread().name)
                 when (it) {
                     is CommonResult.Success -> {
                         Log.e("AAAAA","success  ${it.data.size}")

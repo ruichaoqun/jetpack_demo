@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import android.content.ComponentName
 import android.content.Context
-import com.example.myapplication.media.MusicService
+import com.rcq.media.MusicService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +15,6 @@ class AppModule {
 
     @Provides
     fun providerMusicServiceComponentName(@ApplicationContext context: Context)  = ComponentName(context,
-        MusicService::class.java
+        com.rcq.media.MusicService::class.java
     )
 }

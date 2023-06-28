@@ -1,7 +1,9 @@
 package com.example.myapplication.media
 
 import com.example.myapplication.database.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,7 +21,7 @@ class LuckyMediaRepository @Inject constructor(
                     musicDao.insertAll(it)
                 }
             }
-        }
+        }.flowOn(Dispatchers.IO)
 
 
     override fun getLikeMusic(): Flow<List<MusicEntity>> {
