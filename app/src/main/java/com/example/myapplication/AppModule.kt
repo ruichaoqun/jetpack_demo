@@ -15,6 +15,6 @@ class AppModule {
 
     @Provides
     fun providerMusicServiceComponentName(@ApplicationContext context: Context)  = ComponentName(context,
-        com.rcq.media.MusicService::class.java
+        MusicService::class.java
     )
 }

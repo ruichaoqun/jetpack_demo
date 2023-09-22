@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val musicServiceConnection: com.rcq.media.MusicServiceConnection,
+    private val musicServiceConnection: MusicServiceConnection,
     private val mediaRepository: MediaRepository):BaseViewModel() {
 
     val _localMusicListResult :MutableStateFlow<CommonResult<List<MusicEntity>>> = MutableStateFlow(CommonResult.Loading)

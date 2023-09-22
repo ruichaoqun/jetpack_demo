@@ -6,6 +6,9 @@ import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.util.Log
 import androidx.media.MediaBrowserServiceCompat
+import com.example.myapplication.data.MediaType
+import com.example.myapplication.data.MediaType.Companion.MEDIA_TYPE_CURRENT
+import com.example.myapplication.data.MediaType.Companion.MEDIA_TYPE_LOCAL
 import com.example.myapplication.media.MediaRepository
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,7 +64,15 @@ class MusicService : MediaBrowserServiceCompat() {
         result: Result<MutableList<MediaBrowserCompat.MediaItem>>
     ) {
         Log.i(TAG, "onLoadChildren::  parentId:  $parentId")
-        when (parentId)
-        result.sendResult(mutableListOf())
+        var results:MutableList<MediaBrowserCompat.MediaItem>?
+        when(MediaType.getMediaType(parentId)) {
+            MEDIA_TYPE_LOCAL -> {
+//                results = mediaRepository.getLocalMusic()
+            }
+            MEDIA_TYPE_CURRENT -> {
+
+            }
+        }
+//        result.sendResult()
     }
 }

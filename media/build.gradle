@@ -43,7 +43,6 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-service:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-service-ktx:2.5.1'
 
 
     implementation "androidx.media:media:1.6.0"

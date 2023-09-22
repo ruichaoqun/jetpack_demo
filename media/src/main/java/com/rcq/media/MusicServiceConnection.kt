@@ -23,7 +23,7 @@ class MusicServiceConnection @Inject constructor(@ApplicationContext val context
         .setState(PlaybackStateCompat.STATE_NONE,0,0F)
         .build()
 
-    private val isConnect : MutableStateFlow<ConnectState> = MutableStateFlow(ConnectState.DisConnected)
+    val isConnect : MutableStateFlow<ConnectState> = MutableStateFlow(ConnectState.DisConnected)
     private val playbackState = MutableStateFlow(EMPTY_PLAYBACK_STATE)
 
     private val mediaBrowserCompat = MediaBrowserCompat(
