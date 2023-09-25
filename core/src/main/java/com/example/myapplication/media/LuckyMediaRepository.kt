@@ -14,7 +14,7 @@ class LuckyMediaRepository @Inject constructor(
     private val contentMediaSource: ContentMediaSource
 ) : MediaRepository {
 
-    override fun getLocalMusic(): Flow<List<MusicEntity>> =
+    override suspend fun getLocalMusic(): MutableList<MusicEntity> =
         musicDao.getLocalMusic().map { list ->
             list.ifEmpty {
                 contentMediaSource.getLocalMusic().also {

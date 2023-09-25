@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.Flow
 interface MusicDao {
 
     @Query("SELECT * FROM music ORDER BY id")
-    fun getLocalMusic():Flow<List<MusicEntity>>
+    suspend fun getLocalMusic():MutableList<MusicEntity>
 
 
     @Query("SELECT * FROM music WHERE is_like = 1")
-    fun getLikeMusic():Flow<List<MusicEntity>>
+    suspend fun getLikeMusic():MutableList<MusicEntity>
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -11,27 +11,27 @@ interface MediaRepository {
     /**
      * 获取本地音乐列表
      */
-    fun getLocalMusic(): Flow<List<MusicEntity>>
+    fun getLocalMusic(): Flow<MutableList<MusicEntity>>
 
     /**
      * 获取我喜欢的音乐列表
      */
-    fun getLikeMusic():Flow<List<MusicEntity>>
+    fun getLikeMusic():MutableList<MusicEntity>
 
     /**
      * 获取本地歌手列表
      */
-    fun getArtistList():Flow<List<ArtistEntity>>
+    fun getArtistList():MutableList<ArtistEntity>
 
     /**
      * 获取本地专辑列表
      */
-    fun getAlbumList():Flow<List<AlbumEntity>>
+    fun getAlbumList():MutableList<AlbumEntity>
 
     /**
      * 获取历史播放列表
      */
-    fun getHistoryPlayList():Flow<List<MusicEntity>>
+    fun getHistoryPlayList():MutableList<MusicEntity>
 
     /**
      * 保存播放列表到数据库
