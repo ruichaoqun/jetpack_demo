@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface MusicDao {
 
     @Query("SELECT * FROM music ORDER BY id")
-    suspend fun getLocalMusic():MutableList<MusicEntity>
+    fun getLocalMusic():Flow<MutableList<MusicEntity>>
 
 
     @Query("SELECT * FROM music WHERE is_like = 1")

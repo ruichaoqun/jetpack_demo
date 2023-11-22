@@ -14,7 +14,7 @@ class LuckyMediaRepository @Inject constructor(
     private val contentMediaSource: ContentMediaSource
 ) : MediaRepository {
 
-    override suspend fun getLocalMusic(): MutableList<MusicEntity> =
+    override fun getLocalMusic(): Flow<MutableList<MusicEntity>> =
         musicDao.getLocalMusic().map { list ->
             list.ifEmpty {
                 contentMediaSource.getLocalMusic().also {
@@ -24,19 +24,19 @@ class LuckyMediaRepository @Inject constructor(
         }.flowOn(Dispatchers.IO)
 
 
-    override fun getLikeMusic(): Flow<List<MusicEntity>> {
+    override fun getLikeMusic(): MutableList<MusicEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun getArtistList(): Flow<List<ArtistEntity>> {
+    override fun getArtistList(): MutableList<ArtistEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun getAlbumList(): Flow<List<AlbumEntity>> {
+    override fun getAlbumList(): MutableList<AlbumEntity> {
         TODO("Not yet implemented")
     }
 
-    override fun getHistoryPlayList(): Flow<List<MusicEntity>> {
+    override fun getHistoryPlayList(): MutableList<MusicEntity> {
         TODO("Not yet implemented")
     }
 

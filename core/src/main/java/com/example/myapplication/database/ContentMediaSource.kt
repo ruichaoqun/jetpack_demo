@@ -21,7 +21,7 @@ class ContentMediaSource @Inject constructor(@ApplicationContext context: Contex
     }
 
     @SuppressLint("Range")
-    suspend fun getLocalMusic() :List<MusicEntity>{
+    suspend fun getLocalMusic() :MutableList<MusicEntity>{
         val selectionBuilder = StringBuilder("is_music=1 AND title != ''")
         val projection = arrayOf(
             BaseColumns._ID,

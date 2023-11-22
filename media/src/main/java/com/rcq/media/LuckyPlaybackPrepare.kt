@@ -14,26 +14,22 @@ class LuckyPlaybackPrepare:PlaybackPreparer {
         extras: Bundle?,
         cb: ResultReceiver?
     ): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun getSupportedPrepareActions(): Long {
-        TODO("Not yet implemented")
+        return 0
     }
 
     override fun onPrepare(playWhenReady: Boolean) {
-        TODO("Not yet implemented")
     }
 
     override fun onPrepareFromMediaId(mediaId: String, playWhenReady: Boolean, extras: Bundle?) {
-        TODO("Not yet implemented")
     }
 
     override fun onPrepareFromSearch(query: String, playWhenReady: Boolean, extras: Bundle?) {
-        TODO("Not yet implemented")
     }
 
     override fun onPrepareFromUri(uri: Uri, playWhenReady: Boolean, extras: Bundle?) {
-        TODO("Not yet implemented")
     }
 }

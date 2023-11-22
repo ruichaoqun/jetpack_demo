@@ -81,7 +81,6 @@ class MusicService : MediaBrowserServiceCompat() {
                             .setTitle(media.title)
                             .setSubtitle(media.artist)
                             .setDescription(media.album)
-                            .setIconUri(media.a)
                             .build(),
                         MediaBrowserCompat.MediaItem.FLAG_BROWSABLE)
                 })
