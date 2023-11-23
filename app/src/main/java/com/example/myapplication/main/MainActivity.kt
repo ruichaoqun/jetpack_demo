@@ -1,7 +1,9 @@
 package com.example.myapplication.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,16 +13,17 @@ import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.data.CommonResult
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.test.Test
+import com.example.myapplication.view.localmedia.LocalMediaActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.util.Objects
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     private val viewModel:MainViewModel by viewModels()
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tvLocalMusic.setOnClickListener{ gotoLocalMusic() }
 
         lifecycleScope.launch {
             viewModel.uiState.collectLatest {
@@ -80,6 +84,10 @@ class MainActivity : AppCompatActivity() {
 //
 //        }
 //        viewModel.loadLocalMusic()
+    }
+
+    private fun gotoLocalMusic() {
+        startActivity(Intent(this,LocalMediaActivity::class.java))
     }
 
     override fun onStart() {

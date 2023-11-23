@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @HiltViewModel
-class LocalMediaViewModel@Inject constructor(
+class LocalMediaViewModel @Inject constructor(
     private val musicServiceConnection: MusicServiceConnection):BaseViewModel() {
 
 
