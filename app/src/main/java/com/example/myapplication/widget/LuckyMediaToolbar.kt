@@ -7,7 +7,6 @@ import com.example.myapplication.utils.dp
 
 class LuckyMediaToolbar: Toolbar {
     var reflected = false
-    var
 
     constructor(context: Context) :super(context) {}
     constructor(context: Context,attributeSet: AttributeSet?) :super(context,attributeSet) {}

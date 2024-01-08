@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.activity.viewModels
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.lifecycleScope
+import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.data.CommonResult
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.test.Test
@@ -21,7 +22,7 @@ import java.util.Objects
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val TAG = "MainActivity"
 
     private lateinit var binding: ActivityMainBinding
@@ -34,8 +35,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         binding.tvLocalMusic.setOnClickListener{ gotoLocalMusic() }
 
         lifecycleScope.launch {
@@ -85,6 +84,8 @@ class MainActivity : AppCompatActivity() {
 //        }
 //        viewModel.loadLocalMusic()
     }
+
+    override fun createBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     private fun gotoLocalMusic() {
         startActivity(Intent(this,LocalMediaActivity::class.java))
